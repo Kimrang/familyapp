@@ -1,0 +1,22 @@
+<?php
+    echo 
+    "
+        <header>
+            <div>
+                FamilyApp
+            </div>
+            <nav>
+                <ul>
+                    <li>Home</li>
+                    <li>Gallery</li>
+                    <li>Messages</li>
+                    <li>
+                        <a href=\"profile.php\">
+                            Profile
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    ";
+?>
