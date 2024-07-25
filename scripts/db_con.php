@@ -1,8 +1,8 @@
 <?php
-    $serverName = "localhost";
-    $username = "root";
-    $password = "";
-    $dbName = "familyapp";
+    $serverName = "mcaserver";
+    $username = "user01";
+    $password = "sac";
+    $dbName = "user01";
 
     $con = mysqli_connect($serverName, $username, $password, $dbName);
 

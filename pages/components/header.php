@@ -7,8 +7,16 @@
             </div>
             <nav>
                 <ul>
-                    <li>Home</li>
-                    <li>Gallery</li>
+                    <li>
+						<a href=\"home.php\">
+							Home
+						</a>
+					</li>
+                    <li>
+						<a href=\"gallery.php\">
+							Gallery
+						</a>
+					</li>
                     <li>Messages</li>
                     <li>
                         <a href=\"profile.php\">
