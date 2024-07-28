@@ -14,6 +14,7 @@
             session_start();
             $tuple = mysqli_fetch_assoc($res);
             $_SESSION['uid'] = (int) $tuple['ID'];
+            $_SESSION['username'] = $username;
             $_SESSION['fid'] = (int) $tuple['FID'];
             header("Location: ../pages/home.php");
             

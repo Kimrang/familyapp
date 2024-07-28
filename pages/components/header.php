@@ -17,7 +17,11 @@
 							Gallery
 						</a>
 					</li>
-                    <li>Messages</li>
+                    <li>
+                        <a href=\"messages.php\">
+                            Messages
+                        </a>
+                    </li>
                     <li>
                         <a href=\"profile.php\">
                             Profile

@@ -15,7 +15,7 @@
             
             exit();
         } else {
-            // header("Location: ../pages/registration.php?registration=failed");   
+            die("Error: Registration failed!"); 
         }
     }
 ?>
