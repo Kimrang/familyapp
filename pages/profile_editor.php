@@ -12,29 +12,34 @@
         
         <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                require_once('../scripts/db_con.php');
+                
+                include('./components/header.php');
                 // TODO: compact this
                 $uid = filter_input(INPUT_POST, "uid", FILTER_SANITIZE_SPECIAL_CHARS);
+                $query = "SELECT * FROM USERS WHERE ID={$uid}";
+                $res = mysqli_query($con, $query);
+                $user = mysqli_fetch_assoc($res);
                 
-                // TODO: populate fields with present values
                 echo "
                     <form class=\"form w-50 p-5 rounded-3 mt-3 mx-auto border\" action=\"../scripts/update_user.php\" method=\"post\">
                         <h3 class=\"mb-3\">Update your profile</h3>
                         <input type=\"hidden\" id=\"id\" name=\"id\" value={$uid}>
                         <div class=\"mt-5 mb-3\">
                             <label class=\"form-label\" for=\"username\">Username</label>
-                            <input type=\"text\" id=\"username\" class=\"form-control\" name=\"username\" required/>
+                            <input type=\"text\" id=\"username\" class=\"form-control\" name=\"username\" value={$user['USERNAME']} required/>
                         </div>
                         <div class=\"my-3\">
                             <label class=\"form-label\" for=\"password\">Password</label>
-                            <input type=\"text\" id=\"password\" class=\"form-control\" name=\"password\" required/>
+                            <input type=\"password\" id=\"password\" class=\"form-control\" name=\"password\" value={$user['PWD']} required />
                         </div>
                         <div class=\"my-3\">
                             <label class=\"form-label\" for=\"fullname\">Fullname</label>
-                            <input type=\"text\" id=\"fullname\" class=\"form-control\" name=\"fullname\" />
+                            <input type=\"text\" id=\"fullname\" class=\"form-control\" value={$user['FULLNAME']} name=\"fullname\" />
                         </div>
                         <div class=\"my-3\">
                             <label class=\"form-label\" for=\"dob\">DOB</label>
-                            <input type=\"date\" id=\"dob\" class=\"form-control\" name=\"dob\" />
+                            <input type=\"date\" id=\"dob\" class=\"form-control\" value={$user['DOB']} name=\"dob\" />
                         </div>
                         <div class=\"my-3\">
                             <label class=\"form-label\" for=\"dob\">Relationship</label>
@@ -42,7 +47,7 @@
                                 <option value=\"FATHER\">Father</option>
                                 <option value=\"MOTHER\">Mother</option>
                                 <option value=\"CHILD\">Child</option>
-                                <option value=\"\"></option>
+                                <option value=\"\" selected></option>
                             </select>
                         </div>
 

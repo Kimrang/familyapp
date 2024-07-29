@@ -41,3 +41,7 @@ ul {
 textarea.message {
     height: 200px;
 }
+
+.svg-bs-icon {
+    color: white;
+}
