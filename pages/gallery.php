@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Gallery</title>
+		<?php
+            include("./styles.php");
+        ?>
     </head>
     <body>
         <?php
@@ -11,15 +14,22 @@
             
 			session_start();
 
-            if (isset($_SESSION['uid'])) {
+            if (isset($_SESSION['isActive'])) {
 				$fid = $_SESSION['fid'];
 
                 include("./components/header.php");
                 
-				echo "<main>";
+				echo "
+					<main>
+				";
 				
 				// gallery section
-				echo "<section>";
+				// TODO: Implement grid layout
+				echo "
+					<section class=\"p-4\">
+						<h3>{$_SESSION['familyname']} photos</h3>
+						<div class=\"gallery-photos p-4\">
+				";
 				
 				$dir_path = "../assets/gallery/{$fid}/";
 
@@ -29,23 +39,25 @@
 					foreach ($images as $item) {
 						if ($item != '.' && $item != '..') {
 							$path = $dir_path.$item;
-							echo "<img src={$path} width=\"100\" height=\"50\" />";
+							echo "<img src={$path} class=\"img-md m-3\" />";
 						}
 					}
-				} else {
-					die('Directory not readable.');
 				}
 				
-				echo "</section>";
+				echo "
+						</div>
+					</section>
+				";
 				
 				// form section
 				echo "
-					<section>
-						<form action=\"../scripts/upload_photo.php\" method=\"post\"  enctype=\"multipart/form-data\">
-							<label for=\"picture\">Select File</label>
-							<input type=\"file\" id=\"picture\" name=\"picture\" />
+					<section class=\"w-25 border rounded-5 shadow p-5 my-5 mx-auto\">
+						<h3>Upload to Family Gallery</h3>
+						<form class=\"form\" action=\"../scripts/upload_photo.php\" method=\"post\" enctype=\"multipart/form-data\">
+							<label class=\"form-label\" for=\"picture\">Select File</label>
+							<input class=\"form-control\" type=\"file\" id=\"picture\" name=\"picture\" />
 							<input type=\"hidden\" id=\"fid\" name=\"fid\" value='$fid' />
-							<input type=\"submit\" value=\"Upload\" />
+							<input class=\"btn btn-success my-3\" type=\"submit\" value=\"Upload\" />
 						</form>
                     </section>
                 ";

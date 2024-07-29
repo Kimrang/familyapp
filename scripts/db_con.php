@@ -20,9 +20,7 @@
 
     if (mysqli_connect_errno()) {
         die("Error connecting to {$dbName}");
-
         exit();
     }
 
-    echo "<script>console.log('Connection successful!')</script>";
 ?>

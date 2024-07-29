@@ -12,10 +12,18 @@
             header("Location: ../pages/login.php?login=failed");
         } else {
             session_start();
+
             $tuple = mysqli_fetch_assoc($res);
+            $_SESSION['isActive'] = TRUE;
             $_SESSION['uid'] = (int) $tuple['ID'];
             $_SESSION['username'] = $username;
             $_SESSION['fid'] = (int) $tuple['FID'];
+            
+            $query = "SELECT FAMILYNAME FROM FAMILY WHERE ID={$tuple['FID']}";
+            $res = mysqli_query($con, $query);
+            $row = mysqli_fetch_assoc($res);            
+            $_SESSION['familyname'] = $row['FAMILYNAME'];
+
             header("Location: ../pages/home.php");
             
             exit();

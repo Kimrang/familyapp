@@ -10,12 +10,11 @@
         $result = mysqli_query($con, $query);
     
         if(isset($result)) {
-            session_start();
-            header("Location: ../pages/login.php");
+            header("Location: ../pages/login.php?registration=success");
             
             exit();
         } else {
-            die("Error: Registration failed!"); 
+            header("Location: ../pages/registration.php?registration=failed");
         }
     }
 ?>

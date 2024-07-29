@@ -1,0 +1,43 @@
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    padding: 0px;
+    list-style: none;
+}
+
+.home-photos {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+    display: flex;
+}
+
+.gallery-photos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+    overflow-y: scroll;
+}
+
+.card-user-img {
+    height: 100px;
+    width: 100px;
+    margin: 0px auto;
+}
+
+.img-md {
+    height: 200px;
+    width: 350px;
+}
+
+.img-lg {
+    height: 300px;
+    width: 450px;
+}
+
+textarea.message {
+    height: 200px;
+}
