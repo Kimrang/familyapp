@@ -4,8 +4,15 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
         $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+		$rpassword = filter_input(INPUT_POST, "rpassword", FILTER_SANITIZE_SPECIAL_CHARS);
         $familyid = filter_input(INPUT_POST, "familyid", FILTER_SANITIZE_SPECIAL_CHARS);
+		
+		if ($password !== $rpassword) {
+            header("Location: ../pages/registration.php?registration=password+mismatch");
 
+            exit();
+		}
+		
         $query = "SELECT ID FROM USERS WHERE USERNAME='{$username}' AND FID={$familyid}";
         $result = mysqli_query($con, $query);
 

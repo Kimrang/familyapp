@@ -44,6 +44,8 @@
                         <div class=\"my-3\">
                             <label class=\"form-label\" for=\"dob\">Relationship</label>
                             <select class=\"form-select\" name=\"relationship\">
+								<option value=\"GRANDFATHER\">Grandfather</option>
+                                <option value=\"GRANDMOTHER\">Grandmother</option>
                                 <option value=\"FATHER\">Father</option>
                                 <option value=\"MOTHER\">Mother</option>
                                 <option value=\"CHILD\">Child</option>
