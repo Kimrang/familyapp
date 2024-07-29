@@ -27,7 +27,7 @@
                         <input type=\"hidden\" id=\"id\" name=\"id\" value={$uid}>
                         <div class=\"mt-5 mb-3\">
                             <label class=\"form-label\" for=\"username\">Username</label>
-                            <input type=\"text\" id=\"username\" class=\"form-control\" name=\"username\" value={$user['USERNAME']} required/>
+                            <input type=\"text\" id=\"username\" class=\"form-control\" name=\"username\" value={$user['USERNAME']} readonly required/>
                         </div>
                         <div class=\"my-3\">
                             <label class=\"form-label\" for=\"password\">Password</label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class=\"my-3\">
                             <label class=\"form-label\" for=\"fullname\">Fullname</label>
-                            <input type=\"text\" id=\"fullname\" class=\"form-control\" value={$user['FULLNAME']} name=\"fullname\" />
+                            <input type=\"text\" id=\"fullname\" class=\"form-control\" name=\"fullname\" value=\"{$user['FULLNAME']}\" />
                         </div>
                         <div class=\"my-3\">
                             <label class=\"form-label\" for=\"dob\">DOB</label>

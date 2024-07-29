@@ -15,8 +15,13 @@
                 if (isset($_GET['registration']) && htmlspecialchars($_GET['registration'] === 'success')) {
                     echo "<h5 class=\"text-success w-50 mt-4 mx-auto\">Registration successful</h5>";
                 }
+
                 if (isset($_GET['login']) && htmlspecialchars($_GET['login']) === 'failed') {
                     echo "<h5 class=\"text-danger w-75 mt-4 mx-auto\">Incorrect username or password</h5>";
+                }
+
+                if (isset($_GET['login']) && htmlspecialchars($_GET['login']) === 'loggedout') {
+                    echo "<h5 class=\"text-success w-75 mt-4 mx-auto\">Logged out successfully</h5>";
                 }
             ?>
             <div class="my-4 w-75 mx-auto">
@@ -29,6 +34,10 @@
             </div>
             <div class="text-center mt-5">
                 <input class="btn btn-success w-50" type="submit" value="Login" />
+            </div>
+            
+            <div class="text-center mt-3">
+                New User? <a class="text-primary" href="./registration.php">Register here</a>
             </div>
         </form>
     </body>

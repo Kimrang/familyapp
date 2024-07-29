@@ -11,8 +11,10 @@
     <body>
         <?php
             session_start();
-            
-            if (isset($_SESSION['isActive'])) {
+
+            echo "<script>console.log('{$_SESSION['isActive']}')</script>";
+
+            if ($_SESSION['isActive']) {
                 include("./components/header.php");
                 
                 echo "<main>";

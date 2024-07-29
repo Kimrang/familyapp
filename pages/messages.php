@@ -12,7 +12,7 @@
         <?php
             session_start();
 
-            if ($_SESSION['uid']) {
+            if ($_SESSION['isActive']) {
                 require_once('../scripts/db_con.php');
                 include('./components/header.php');
 
@@ -54,7 +54,7 @@
 
                 echo "</section>";
             } else {
-                die("You are not logged in");
+                echo "<h3>You are not logged in</h3>";
             }
         ?>        
     </body>

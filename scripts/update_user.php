@@ -15,7 +15,7 @@
         if (isset($res)) {
             header("Location: ../pages/profile.php");
         } else {
-            // TODO: Implement error path
+            
         }
     }    
 ?>

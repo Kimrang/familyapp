@@ -14,7 +14,7 @@
             
 			session_start();
 
-            if (isset($_SESSION['isActive'])) {
+            if ($_SESSION['isActive']) {
 				$fid = $_SESSION['fid'];
 
                 include("./components/header.php");

@@ -9,12 +9,12 @@
         $res = mysqli_query($con, $query);
         
         if (mysqli_num_rows($res) == 0) {
-            header("Location: ../pages/login.php?login=failed");
+            header("Location: ../pages/index.php?login=failed");
         } else {
             session_start();
 
             $tuple = mysqli_fetch_assoc($res);
-            $_SESSION['isActive'] = TRUE;
+            $_SESSION['isActive'] = true;
             $_SESSION['uid'] = (int) $tuple['ID'];
             $_SESSION['username'] = $username;
             $_SESSION['fid'] = (int) $tuple['FID'];
